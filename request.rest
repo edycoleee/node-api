@@ -1,0 +1,36 @@
+//request.rest
+### 
+GET http://localhost:3500/
+
+### 1. get all Data Pasien
+GET http://localhost:3500/dtpasien
+
+### 2. get Data Pasien by id
+GET http://localhost:3500/dtpasien/1
+
+###  3. add new Data Pasien
+POST http://localhost:3500/dtpasien
+content-type: application/json
+
+{
+    "nama" : "Silmi2",
+    "alamat" : "Karangawen"
+}
+
+### 5. update Data Pasien by id
+PUT http://localhost:3500/dtpasien/2
+content-type: application/json
+
+{
+    "nama" : "Silmi5",
+    "alamat" : "Karangawen"
+}
+
+### 4. remove Data Pasien by id
+DELETE  http://localhost:3500/dtpasien/2
+
+### 6. find all aktif Data Pasien
+GET http://localhost:3500/dtpasien/aktif
+
+### 7. find all Data Pasien which alamat contains ’semarang’
+GET http://localhost:3500/dtpasien?alamat=Semarang

@@ -1,0 +1,8 @@
+20230430	23:25:41	01ab33fd-c743-424a-a708-f05e2c4486bd	GET	/dtpasien	undefined
+20230430	23:25:53	57868331-e2e3-42d2-8a53-fb61ecc1dcde	GET	/dtpasien/1	undefined
+20230430	23:26:40	4773a59e-a4fa-4fa9-ab4b-eb464b9379d4	OPTIONS	/	https://www.google.com
+20230430	23:26:40	cfead5b7-5e47-4c4b-b7ea-85acf24bc650	GET	/	https://www.google.com
+20230430	23:27:23	de8ac8de-fc5a-4ff6-b6c3-5e2ceb6695f0	OPTIONS	/	https://www.google.com
+20230430	23:27:23	46b50f5d-6d6a-4153-b8e9-6879b6e8c8a4	GET	/	https://www.google.com
+20230430	23:27:33	9fea3ede-c5c8-4919-a22e-ab73d1a4e687	OPTIONS	/	https://www.google.com
+20230430	23:27:33	e88feec2-ce70-4210-863d-e43b8c24c1f3	GET	/	https://www.google.com

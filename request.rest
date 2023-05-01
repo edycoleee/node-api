@@ -6,28 +6,30 @@ GET http://localhost:3500/
 GET http://localhost:3500/dtpasien
 
 ### 2. get Data Pasien by id
-GET http://localhost:3500/dtpasien/1
+GET http://localhost:3500/dtpasien/644f40cebb0c40c2f0b9b6e6
 
 ###  3. add new Data Pasien
 POST http://localhost:3500/dtpasien
 content-type: application/json
 
 {
-    "nama" : "Silmi2",
-    "alamat" : "Karangawen"
+    "nama" : "Edy",
+    "alamat" : "Semarang",
+    "aktif" : true
 }
 
 ### 5. update Data Pasien by id
-PUT http://localhost:3500/dtpasien/2
+PUT http://localhost:3500/dtpasien/644f4088e54e397cedc511f3
 content-type: application/json
 
 {
-    "nama" : "Silmi5",
-    "alamat" : "Karangawen"
+    "nama" : "Silmi",
+    "alamat" : "Semarang",
+    "aktif" :false
 }
 
 ### 4. remove Data Pasien by id
-DELETE  http://localhost:3500/dtpasien/2
+DELETE  http://localhost:3500/dtpasien/644f43bc558b67aa4e880983
 
 ### 6. find all aktif Data Pasien
 GET http://localhost:3500/dtpasien/aktif

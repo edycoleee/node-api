@@ -1,4 +1,4 @@
-//config/config.js
+//config/mongoConfig.js
 const dtCfgMongo = {
   MONGO_IP: process.env.MONGO_IP || "mongodb-node",
   MONGO_PORT: process.env.MONGO_PORT || 27017,

@@ -1,16 +1,17 @@
 //routes/PasienRoutes.js
 import express from "express";
-const PasienRouter = express.Router();
 import {
-  getPatients, getPatientsAktif,
-  createPatient, getPatient,
-  deletePatient, updatePatient
-} from '../controller/PasienController.js';
+  getPatients, createPatient,
+  getPatient, updatePatient,
+  getPatientsAktif, deletePatient
+} from "../controller/PasienControllerMongo.js";
+const PasienRouter = express.Router();
+
 
 PasienRouter.route('/')
-  // 1,7. find all Data Pasien which alamat contains ’semarang’
+  // 1. find all Data Pasien
   .get(getPatients)
-  // 3. add new Data Pasien
+  // 2. add new Data Pasien
   .post(createPatient);
 
 PasienRouter.route('/aktif')

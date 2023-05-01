@@ -7,11 +7,26 @@ services:
       - "3500:3500"
     #Production==========
     #Development=========
-    # volumes:
-    #   - ./:/app
-    #   - /app/node_modules
+    volumes:
+      - ./:/app
+      - /app/node_modules
     environment:
       - PORT=3500
     #env_file:
     # - ./.env
+  mongodb-node:
+    image: mongo
+    container_name: mongodb-node
+    restart: unless-stopped
+    ports:
+      - 27027:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=super-password1
+    volumes:
+      - mongo-db:/data/db
+
+volumes:
+  mongo-db:
+
 

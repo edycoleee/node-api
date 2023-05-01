@@ -6,8 +6,8 @@ RUN npm install
 COPY . ./
 EXPOSE 3000
 #Production============
-CMD ["node", "index.js"]
+#CMD ["node", "index.js"]
 #Development===========
-#CMD ["npm", "run","dev"]
+CMD ["npm", "run","dev"]
 
 

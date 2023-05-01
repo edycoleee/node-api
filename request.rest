@@ -36,3 +36,6 @@ GET http://localhost:3500/dtpasien/aktif
 
 ### 7. find all Data Pasien which alamat contains ’semarang’
 GET http://localhost:3500/dtpasien?alamat=Semarang
+
+### 1. get all Data Coba
+GET http://localhost:3500/coba

@@ -1,0 +1,24 @@
+CREATE DATABASE IF NOT EXISTS patientsdb;
+
+USE patientsdb;
+
+DROP TABLE IF EXISTS patients;
+
+CREATE TABLE patients (
+  id         BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  nama VARCHAR(255) DEFAULT NULL,
+  alamat  VARCHAR(255) DEFAULT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+);
+
+DELIMITER //
+CREATE PROCEDURE create_and_return(IN nama VARCHAR(255), IN alamat VARCHAR(255))
+BEGIN
+  INSERT INTO patients(nama, alamat) VALUES (nama, alamat);
+  
+  SET @PATIENT_ID = LAST_INSERT_ID();
+
+  SELECT * FROM patients WHERE id=@PATIENT_ID;
+END //
+DELIMITER ;

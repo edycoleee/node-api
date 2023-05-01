@@ -1,1 +1,6 @@
 20230501	04:30:51	0a5cdc07-c800-4153-9557-406cd81c7962	SyntaxError: Expected double-quoted property name in JSON at position 53	POST	/dtpasien	undefined
+20230501	12:53:07	efe83a22-66f2-4fd6-99bc-f528db406147	SyntaxError: Expected double-quoted property name in JSON at position 49	POST	/dtpasien	undefined
+20230501	12:54:39	319f294a-89b3-47ee-87c0-c1dbd0af41f6	SyntaxError: Expected double-quoted property name in JSON at position 49	POST	/dtpasien	undefined
+20230501	12:55:45	b8c985b3-de1b-4669-aee5-ff1a2fa7161b	SyntaxError: Expected double-quoted property name in JSON at position 49	POST	/dtpasien	undefined
+20230501	12:59:26	f6d22eb6-b45d-4727-aa29-567824081316	SyntaxError: Expected double-quoted property name in JSON at position 49	POST	/dtpasien	undefined
+20230501	13:01:05	d986cb7a-9eb6-42c8-8982-43a0d63be418	SyntaxError: Expected double-quoted property name in JSON at position 49	POST	/dtpasien	undefined

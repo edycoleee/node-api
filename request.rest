@@ -13,9 +13,8 @@ POST http://localhost:3500/dtpasien
 content-type: application/json
 
 {
-    "nama" : "Edy",
-    "alamat" : "Semarang",
-    "aktif" : true
+    "nama" : "Edy3",
+    "alamat" : "Semarang"
 }
 
 ### 5. update Data Pasien by id
@@ -35,7 +34,7 @@ DELETE  http://localhost:3500/dtpasien/644f43bc558b67aa4e880983
 GET http://localhost:3500/dtpasien/aktif
 
 ### 7. find all Data Pasien which alamat contains ’semarang’
-GET http://localhost:3500/dtpasien?alamat=Semarang
+GET http://localhost:3500/dtpasien?alamat=ddd
 
-### 1. get all Data Coba
+### 8. get all Data Coba
 GET http://localhost:3500/coba

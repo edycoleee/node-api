@@ -26,66 +26,63 @@ function ResponseServer(statusCode, httpStatus, message, data) {
 
 
 // 1. find all Data Pasien 
-export const getPatients = async (req, res) => {
-  logConsole.info(`${req.method} ${req.originalUrl}, fetching patients`);
-  // if (req.query.alamat === undefined) {
-
-  database.query(QUERY.SELECT_PATIENTS, (error, results) => {
-    if (error) {
-      res.status(HttpStatus.INTERNAL_SERVER_ERROR.code)
-        .send(ResponseServer(HttpStatus.INTERNAL_SERVER_ERROR.code, HttpStatus.INTERNAL_SERVER_ERROR.status, `Error occurred ${error.message}`));
-    }
-    if (!results) {
+export const getPatients = (req, res) => {
+  if (req.query.alamat === undefined) {
+    database.query(QUERY.SELECT_PATIENTS, (error, results) => {
+      if (error) {
+        return res.status(HttpStatus.INTERNAL_SERVER_ERROR.code)
+          .send(ResponseServer(HttpStatus.INTERNAL_SERVER_ERROR.code, HttpStatus.INTERNAL_SERVER_ERROR.status, `Error occurred ${error.message}`));
+      }
+      if (!results) {
+        return res.status(HttpStatus.OK.code)
+          .send(ResponseServer(HttpStatus.OK.code, HttpStatus.OK.status, `No patients found`));
+      }
       res.status(HttpStatus.OK.code)
-        .send(ResponseServer(HttpStatus.OK.code, HttpStatus.OK.status, `No patients found`));
-    }
-    res.status(HttpStatus.OK.code)
-      .send(ResponseServer(HttpStatus.OK.code, HttpStatus.OK.status, "get all Data Pasien", results));
+        .send(ResponseServer(HttpStatus.OK.code, HttpStatus.OK.status, "get all Data Pasien", results));
+    });
+  } else {
+    //7. Get all Data Pasien which alamat contains ’semarang’
+    database.query(QUERY.CARI_PATIENT, [req.query.alamat], (error, results) => {
+      if (error) {
+        return res.status(HttpStatus.INTERNAL_SERVER_ERROR.code)
+          .send(ResponseServer(HttpStatus.INTERNAL_SERVER_ERROR.code, HttpStatus.INTERNAL_SERVER_ERROR.status, `Error occurred ${error.message}`));
+      }
+      if (!results || results.length === 0) {
+        return res.status(HttpStatus.OK.code)
+          .send(ResponseServer(HttpStatus.OK.code, HttpStatus.OK.status, `No patients found`));
+      }
+      res.status(HttpStatus.OK.code)
+        .send(ResponseServer(HttpStatus.OK.code, HttpStatus.OK.status, "Cari Data Pasien", results));
+    });
+  }
+}
 
-  });
-};
-
-
-// } else {
-//   //7. Get all Data Pasien which alamat contains ’semarang’
-//   try {
-//     //7. Get all Data Pasien
-//     const data = await getdbPasienAllCari(req.query.alamat)
-//     //7a. Jika Data Kosong
-//     console.log(data, typeof (data), data.length);
-//     if (!data || data.length === 0) {
-//       return res.status(HttpStatus.OK.code)
-//         .send(ResponseServer(HttpStatus.NO_CONTENT.code, HttpStatus.NO_CONTENT.status, "tidak ada Data Pasien", data));
-//     }
-//     //7b. Jika Terdapat Isi Data
-//     res.status(HttpStatus.OK.code)
-//       .send(ResponseServer(HttpStatus.OK.code, HttpStatus.OK.status, `get all Data Pasien,alamat : ${req.query.alamat}`, data));
-//   } catch (error) {
-//     res.status(HttpStatus.INTERNAL_SERVER_ERROR.code)
-//       .send(ResponseServer(HttpStatus.INTERNAL_SERVER_ERROR.code, HttpStatus.INTERNAL_SERVER_ERROR.status, `Error occurred ${error.message}`));
-//   }
-// }
 
 // 2. add new Data Pasien
 export const createPatient = async (req, res) => {
   const dataPasien = req.body;
-  console.log(dataPasien);
+  //console.log("DATA PASIEN", dataPasien);
   if (!dataPasien.nama || !dataPasien.alamat) {
     return res.status(HttpStatus.BAD_REQUEST.code)
       .send(ResponseServer(HttpStatus.BAD_REQUEST.code, HttpStatus.BAD_REQUEST.status, "Anda mengirimkan data yang salah", null));
   }
-  try {
-    const data = await createdbPasien(dataPasien)
-    console.log(data, typeof (data), data.length);
+  database.query(QUERY.CREATE_PATIENT_PROCEDURE, Object.values(req.body), (error, results) => {
+    //console.log(results);
+    if (error) {
+      return res.status(HttpStatus.INTERNAL_SERVER_ERROR.code)
+        .send(ResponseServer(HttpStatus.INTERNAL_SERVER_ERROR.code, HttpStatus.INTERNAL_SERVER_ERROR.status, `Error occurred ${error.message}`));
+    }
     res.status(HttpStatus.CREATED.code)
-      .send(ResponseServer(HttpStatus.CREATED.code, HttpStatus.CREATED.status, 'Data Pasien Created', null));
-  } catch (error) {
-    res.status(HttpStatus.INTERNAL_SERVER_ERROR.code)
-      .send(ResponseServer(HttpStatus.INTERNAL_SERVER_ERROR.code, HttpStatus.INTERNAL_SERVER_ERROR.status, `Error occurred ${error.message}`));
-  }
+      .send(ResponseServer(HttpStatus.CREATED.code, HttpStatus.CREATED.status, 'Data Pasien Created', results[0]));
+  });
 }
 // 3. get Data Pasien by id
 export const getPatient = async (req, res) => {
+
+
+
+
+
   try {
     const data = await getdbPasienId(req.params.id)
     console.log(data);

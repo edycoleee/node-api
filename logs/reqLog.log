@@ -6,3 +6,8 @@
 20230430	23:27:23	46b50f5d-6d6a-4153-b8e9-6879b6e8c8a4	GET	/	https://www.google.com
 20230430	23:27:33	9fea3ede-c5c8-4919-a22e-ab73d1a4e687	OPTIONS	/	https://www.google.com
 20230430	23:27:33	e88feec2-ce70-4210-863d-e43b8c24c1f3	GET	/	https://www.google.com
+20230501	01:43:56	23f46ce3-1dbf-4145-b078-17bdc0f2f2bb	GET	/	undefined
+20230501	01:43:56	4db60306-1f55-480a-b9cb-160e291a0aa4	GET	/favicon.ico	undefined
+20230501	01:44:07	7f4f4271-4eab-49d7-81e2-28c69a9cce80	GET	/dtpasien	undefined
+20230501	01:50:00	c86b1e9f-7cb7-4f30-9d6f-90ef7d1305d0	GET	/dtpasien	undefined
+20230501	01:50:30	a5daca5a-6655-47a4-b4ba-4d147ae26405	GET	/dtpasien	undefined

@@ -4,7 +4,7 @@ import { v4 as uuid } from 'uuid';
 let dbPasiens = [
   {
     id: "1",
-    nama: "Edy",
+    nama: "EdyCole",
     alamat: "Karangawen",
     aktif: true
   }, {

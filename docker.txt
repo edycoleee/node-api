@@ -1,0 +1,12 @@
+PERINTAH DOCKER COMPOSE
+sudo docker compose up -d
+sudo docker compose down
+
+UNTUK MASUK KE BASH
+docker exec -it nama-container bash
+printenv
+
+PERINTAH DOCKER LAINNYA
+sudo docker image ls
+sudo docker image rm 
+sudo docker container ps -a

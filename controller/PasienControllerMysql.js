@@ -1,6 +1,6 @@
 //controller/PasienController.js
 import database from "../config/mysqlConfig.js";
-import logConsole from "../middleware/loggerConsole.js";
+//import logConsole from "../middleware/loggerConsole.js";
 import QUERY from "../models/PasienModelMysql.js";
 
 const HttpStatus = {
@@ -61,7 +61,7 @@ export const getPatients = (req, res) => {
 // 2. add new Data Pasien
 export const createPatient = async (req, res) => {
   const dataPasien = req.body;
-  //console.log("DATA PASIEN", dataPasien);
+  console.log("DATA PASIEN", Object.values(dataPasien));
   if (!dataPasien.nama || !dataPasien.alamat) {
     return res.status(HttpStatus.BAD_REQUEST.code)
       .send(ResponseServer(HttpStatus.BAD_REQUEST.code, HttpStatus.BAD_REQUEST.status, "Anda mengirimkan data yang salah", null));

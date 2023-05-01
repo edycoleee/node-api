@@ -13,7 +13,7 @@ POST http://localhost:3500/dtpasien
 content-type: application/json
 
 {
-    "nama" : "Edy3",
+    "nama" : "Edy4",
     "alamat" : "Semarang"
 }
 

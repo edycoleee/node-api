@@ -4,7 +4,7 @@ import {
   getPatients, createPatient,
   getPatient, updatePatient,
   getPatientsAktif, deletePatient
-} from "../controller/PasienControllerMongo.js";
+} from "../controller/PasienControllerMysql.js";
 const PasienRouter = express.Router();
 
 

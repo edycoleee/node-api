@@ -19,7 +19,7 @@ content-type: application/json
 }
 
 ### 5. update Data Pasien by id
-PUT http://localhost:3500/dtpasien/644f4088e54e397cedc511f3
+PUT http://localhost:3500/dtpasien/1
 content-type: application/json
 
 {

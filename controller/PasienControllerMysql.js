@@ -4,7 +4,7 @@ import {
   getdbPasienId, deldbPasienId,
   updatedbPasien, getdbPasienAktif,
   getdbPasienAllCari
-} from "../models/PasienModelMongo.js";
+} from "../models/PasienModelMysql.js";
 
 
 const HttpStatus = {

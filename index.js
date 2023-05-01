@@ -3,25 +3,13 @@ import express from "express";
 import ip from "ip";
 import PasienRouter from "./routes/PasienRoute.js";
 import cors from "cors";
-import mongoose from "mongoose";
 import { logger } from "./middleware/logger.js";
 import errorHandler from "./middleware/errorHandler.js";
-import { mongoURL } from "./config/mongoConfig.js";
 
 const app = express()
 app.use(cors({ origin: '*' }))
-//koneksi mongo db
-const connectWithRetry = () => {
-  mongoose
-    .connect(mongoURL)
-    .then(() => console.log("Sukses Koneksi MongoDB Rev"))
-    .catch((e) => {
-      console.log(e)
-      setTimeout(connectWithRetry, 5000)
-    })
-}
+//koneksi mysql db
 
-connectWithRetry()
 
 //menjalankan middleware
 app.use(logger)

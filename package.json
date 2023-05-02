@@ -22,6 +22,7 @@
     "mysql2": "^3.2.4",
     "pino": "^8.11.0",
     "pino-pretty": "^10.0.0",
+    "tedious": "^16.0.0",
     "uuid": "^9.0.0"
   },
   "devDependencies": {

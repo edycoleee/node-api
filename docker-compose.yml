@@ -1,34 +1,35 @@
 #docker-compose.yml
 version: '3.8'
 services:
-  # node-app:
-  #   build: .
-  #   ports:
-  #     - "3500:3500"
-  #   #Production==========
-  #   #Development=========
-  #   volumes:
-  #     - ./:/app
-  #     - /app/node_modules
-  #   environment:
-  #     - PORT=3500
-  #   #env_file:
-  #   # - ./.env
-  #   depends_on:
-  #     - sql-server-db
-  #   networks:
-  #     - internalnet
-
-  sql-server-db:
-    #build: ./dbinit
-    image: mcr.microsoft.com/mssql/server
-    #user: root
-    container_name: sql1
+  node-app:
+    container_name: node-mssql
+    build: .
     ports:
-      - "1433:1433"
+      - "3500:3500"
+    #Production==========
+    #Development=========
+    volumes:
+      - ./:/app
+      - /app/node_modules
     environment:
-      SA_PASSWORD: "Yukon900"
-      ACCEPT_EULA: "Y"
+      - PORT=3500
+    #env_file:
+    # - ./.env
+    #depends_on:
+    #  - sql-server-db
+    #networks:
+    #  - internalnet
+
+  #sql-server-db:
+    #build: ./dbinit
+    #image: mcr.microsoft.com/mssql/server
+    #user: root
+    #container_name: sql1
+    #ports:
+    #  - "1433:1433"
+    #environment:
+    #  SA_PASSWORD: "Yukon900"
+    #  ACCEPT_EULA: "Y"
     #restart: unless-stopped
     #volumes:
     #  - mssql-db:/var/opt/mssql

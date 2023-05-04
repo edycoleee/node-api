@@ -1,40 +1,34 @@
 //request.rest
-### 
+###  0. GET String
 GET http://localhost:3500/
 
-### 1. get all Data Pasien
+###  0. GET Connected
+GET http://localhost:3500/coba
+
+###  1. GET Data Pasien
 GET http://localhost:3500/dtpasien
 
-### 2. get Data Pasien by id
+###  2. GET Data Pasien by ID
 GET http://localhost:3500/dtpasien/2
 
-###  3. add new Data Pasien
+###  3. CREATE Data Pasien
 POST http://localhost:3500/dtpasien
 content-type: application/json
 
 {
-    "nama" : "Edy5",
-    "alamat" : "Semarang"
+  "id" : 13,
+  "nama" : "Edy5",
+  "alamat" : "Semarang"
 }
 
-### 5. update Data Pasien by id
-PUT http://localhost:3500/dtpasien/3
+###  3. DELETE Data Pasien
+DELETE  http://localhost:3500/dtpasien/13
+
+###  3. UPDATE Data Pasien
+PUT  http://localhost:3500/dtpasien/12
 content-type: application/json
 
 {
-    "nama" : "Silmi UPDATE",
-    "alamat" : "Semarang UPDATE",
-    "aktif" : 0
+  "nama" : "Edy UPDATE",
+  "alamat" : "Semarang UPDATE"
 }
-
-### 4. remove Data Pasien by id
-DELETE  http://localhost:3500/dtpasien/1
-
-### 6. find all aktif Data Pasien
-GET http://localhost:3500/dtpasien/aktif
-
-### 7. find all Data Pasien which alamat contains ’semarang’
-GET http://localhost:3500/dtpasien?alamat=ddd
-
-### 8. get all Data Coba
-GET http://localhost:3500/coba

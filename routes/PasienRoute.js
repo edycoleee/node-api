@@ -3,8 +3,8 @@ import express from "express";
 import {
   getPatients, createPatient,
   getPatient, updatePatient,
-  getPatientsAktif, deletePatient
-} from "../controller/PasienControllerMysql.js";
+  deletePatient
+} from "../controller/PasienControllerMssql.js";
 const PasienRouter = express.Router();
 
 
@@ -14,9 +14,9 @@ PasienRouter.route('/')
   // 2. add new Data Pasien
   .post(createPatient);
 
-PasienRouter.route('/aktif')
-  // 6. find all aktif Data Pasien
-  .get(getPatientsAktif)
+//PasienRouter.route('/aktif')
+// 6. find all aktif Data Pasien
+//  .get(getPatientsAktif)
 
 PasienRouter.route('/:id')
   // 2. get Data Pasien by id

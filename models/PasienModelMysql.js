@@ -1,14 +1,40 @@
-//models/PasienModelMysql.js
-const QUERY = {
-  SELECT_PATIENTS: 'SELECT * FROM patients ORDER BY created_at DESC LIMIT 100',
-  SELECT_PATIENT: 'SELECT * FROM patients WHERE id = ?',
-  CREATE_PATIENT: 'INSERT INTO patients(nama, alamat) VALUES (?, ?)',
-  UPDATE_PATIENT: 'UPDATE patients SET nama = ?, alamat = ?, aktif = ? WHERE id = ?',
-  //UPDATE_PATIENT: `UPDATE patients SET nama = ?, alamat = ? WHERE id = ?`,
-  DELETE_PATIENT: 'DELETE FROM patients WHERE id = ?',
-  CREATE_PATIENT_PROCEDURE: 'CALL create_and_return(?, ?)',
-  AKTIF_PATIENT: 'SELECT * FROM patients WHERE aktif = 1',
-  CARI_PATIENT: 'SELECT * FROM patients WHERE alamat = ?',
-};
+import { Request } from "tedious";
 
-export default QUERY;
+
+export const getExecuteStatement = (connection, query) =>
+  new Promise((resolve, reject) => {
+    const request = new Request(query, (err, rowCount) => {
+      if (err) {
+        console.log(err)
+      } else {
+        console.log(`${rowCount} rows `)
+        resolve(result);
+      }
+    })
+
+    var result = [];
+    request.on('row', columns => {
+      var objt = {};
+      columns.forEach(column => {
+        objt[column.metadata.colName] = column.value;
+      });
+      result.push(objt);
+      console.log(result);
+    });
+    // Close the connection after the final event emitted by the request, after the callback passes
+    request.on("requestCompleted", function (rowCount, more) {
+      connection.close();
+    });
+
+    connection.on('connect', function (err) {
+      console.log("mbuh");
+      if (err) {
+        reject(err);
+      } else {
+        console.log("Connect");
+        connection.execSql(request)
+      }
+    })
+
+    connection.connect();
+  })

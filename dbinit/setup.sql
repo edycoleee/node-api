@@ -1,6 +1,19 @@
-CREATE DATABASE DemoData;
+SET ANSI_NULLS ON
 GO
-USE DemoData;
+SET QUOTED_IDENTIFIER ON
 GO
-CREATE TABLE Products (ID int, ProductName nvarchar(max));
+CREATE TABLE [dbo].[TB_COBA](
+	[id] [int] NOT NULL,
+	[nama] [varchar](50) NULL,
+	[alamat] [varchar](50) NULL
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[TB_COBA] ADD  CONSTRAINT [PK_TB_COBA] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+INSERT [dbo].[TB_COBA] ([id], [nama], [alamat]) VALUES (1, 'Edy', 'Semarang')
+GO
+INSERT [dbo].[TB_COBA] ([id], [nama], [alamat]) VALUES (1, 'Edy1', 'Semarang1')
 GO

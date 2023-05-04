@@ -1,6 +1,5 @@
+//models/PasienModelMysql.js
 import { Request } from "tedious";
-
-
 export const getExecuteStatement = (connection, query) =>
   new Promise((resolve, reject) => {
     const request = new Request(query, (err, rowCount) => {

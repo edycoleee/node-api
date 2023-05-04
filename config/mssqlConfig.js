@@ -1,3 +1,4 @@
+//config/mssqlConfig.js
 //SQL SERVER CONFIG
 const config = {
   server: '103.151.155.59',  //update me

@@ -1,4 +1,4 @@
-//index.js
+//index.js => node-mongo-auth
 import express from "express";
 import ip from "ip";
 import PasienRouter from "./routes/PasienRoute.js";

@@ -3,6 +3,7 @@ version: '3'
 services:
   node-app:
     build: .
+    container_name: app1
     ports:
       - "3500:3500"
     #Production==========
@@ -16,17 +17,18 @@ services:
     # - ./.env
   mongodb-node:
     image: mongo
-    container_name: mongodb-node
+    container_name: mongo1
     restart: unless-stopped
     ports:
-      - 27027:27017
+      - 27037:27017
+    # - 27017:27017
     environment:
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=super-password1
     volumes:
-      - mongo-db:/data/db
+      - mongo1db:/data/db
 
 volumes:
-  mongo-db:
+  mongo1db:
 
 

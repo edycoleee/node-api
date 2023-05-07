@@ -36,3 +36,56 @@ GET http://localhost:3500/dtpasien/aktif
 
 ### 7. find all Data Pasien which alamat contains ’semarang’
 GET http://localhost:3500/dtpasien?alamat=Semarang
+
+### 1. get all User==============================================
+GET http://localhost:3500/user
+
+###  2. add new User
+POST http://localhost:3500/user
+content-type: application/json
+
+{
+    "username" : "edycole2",
+    "password" : "password2",
+    "roles" : ["Employee"]
+}
+
+### 3. delete User by ID
+DELETE  http://localhost:3500/user/645635b89ee6303db641f072
+
+###  4. update User 
+PUT http://localhost:3500/user/645635db9ee6303db641f076
+content-type: application/json
+
+{
+    "username" : "edycole8",
+    "password" : "password2",
+    "roles" : ["Employee"]
+}
+
+### 1. get all Note==============================================
+GET http://localhost:3500/note
+
+###  2. add new User
+POST http://localhost:3500/note
+content-type: application/json
+
+{
+    "user" : "645637d13ae41b4f4b58bbf7",
+    "title" : "title5",
+    "text" : "Ini Text5"
+}
+
+### 3. delete User by ID
+DELETE  http://localhost:3500/note/64571ac2cfa01daecf2ec263
+
+###  4. update User 
+PUT http://localhost:3500/note/64571ac2cfa01daecf2ec263
+content-type: application/json
+
+{
+    "user" : "edycole1",
+    "title" : "title5",
+    "text" : "Ini Text5",
+    "completed" : true
+}
